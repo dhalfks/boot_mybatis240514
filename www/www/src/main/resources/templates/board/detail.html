@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{layout :: setFragment(~{this::content})}">
+    <th:block th:fragment="content">
+        <div class="container-sm">
+            <h1>Board Detail Page</h1>
+            <form action="/board/modify" method="post" id="modForm">
+                <input type="hidden" name="bno" th:value="${bvo.bno}">
+                <div class="my-3">
+                    <label for="created">Created At : </label>
+                    <input type="text" class="form-control" id="created" th:value="${bvo.regAt}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="modified">Modified At : </label>
+                    <input type="text" class="form-control" id="modified" th:value="${bvo.modAt}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="title">Title : </label>
+                    <input type="text" class="form-control" id="title" name="title"
+                           th:value="${bvo.title}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="writer">Writer : </label>
+                    <input type="text" class="form-control" id="writer" name="writer"
+                           th:value="${bvo.writer}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="content">Content : </label>
+                    <textarea name="content" id="content" cols="50" rows="5"
+                              class="form-control" readonly>[[${bvo.content}]]
+                    </textarea>
+                </div>
+                <button type="button" id="listBtn" class="btn btn-outline-primary">List</button>
+                 <!-- detail page 에서 modify 상태로 변경하기 위한 버튼-->
+                <button type="button" id="modBtn"  class="btn btn-outline-warning">Modify</button>
+                <button type="button" id="delBtn" class="btn btn-outline-danger">Remove</button>
+            </form>
+            <form action="/board/remove" method="post" id="delForm" style="display:none">
+                <input type="hidden" name="bno" th:value="${bvo.bno}">
+            </form>
+        </div>
+        <script th:src="@{/js/boardDetail.js}"></script>
+    </th:block>
+</th:block>

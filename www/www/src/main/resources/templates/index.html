@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{layout :: setFragment(~{this::content})}">
+    <th:block th:fragment="content">
+        <div class="mt-4 p-5 bg-primary text-white rounded">
+            <h1>Why Spring Boot?</h1>
+            <p>Spring makes programming Java quicker, easier, and safer for
+                everybody. Spring’s focus on speed, simplicity, and productivity has
+                made it the world's most popular Java framework.</p>
+
+        </div>
+    </th:block>
+</th:block>

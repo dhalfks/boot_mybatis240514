@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{layout :: setFragment(~{this::content})}">
+    <th:block th:fragment="content">
+        <div class="container-sm">
+            <h1>Board Register Page</h1>
+            <form action="/board/register" method="post">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="t">Title</span>
+                    <input type="text" class="form-control" name="title" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="r">Writer</span>
+                    <input type="text" class="form-control" placeholder="Username" name="writer" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="c">Content</span>
+                    <textarea class="form-control" name="content" aria-label="With textarea" ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">register</button>
+            </form>
+        </div>
+    </th:block>
+</th:block>
