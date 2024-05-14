@@ -8,3 +8,14 @@ content text not null,
 reg_at datetime default now(),
 mod_at datetime default now(),
 primary key(bno));
+
+--2024.05.14
+create table file(
+uuid varchar(256) not null,
+save_dir varchar(256) not null,
+file_name varchar(256) not null,
+file_type int(1) default 0,
+bno bigint not null,
+file_size bigint not null,
+reg_at datetime default now(),
+primary key(uuid));
