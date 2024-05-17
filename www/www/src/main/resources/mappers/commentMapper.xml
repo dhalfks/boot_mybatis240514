@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.www.repository.CommentMapper">
+
+    <insert id="post">
+        insert into comment(bno, writer, content)
+        values(#{bno}, #{writer},#{content})
+    </insert>
+
+    <select id="bnoToTotalCount" resultType="int">
+        select count(cno) from comment where bno=#{bno}
+    </select>
+
+    <select id="getList" resultType="com.ezen.www.domain.CommentVO">
+        select * from comment where bno=#{bno}
+        order by cno desc
+        limit #{pgvo.pageStart}, #{pgvo.qty}
+    </select>
+
+    <update id="modify">
+        update comment set
+        content = #{content},
+        mod_at = now()
+        where cno = #{cno}
+    </update>
+    <delete id="delete">
+        delete from comment where cno=#{cno}
+    </delete>
+</mapper>

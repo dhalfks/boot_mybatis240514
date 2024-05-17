@@ -28,4 +28,14 @@ public class MemberServiceImpl implements MemberService {
     }
     return list;
   }
+
+  @Override
+  public int modifyNoPwd(MemberVO mvo) {
+    return 0;
+  }
+
+  @Override
+  public int modify(MemberVO mvo) {
+    return 0;
+  }
 }

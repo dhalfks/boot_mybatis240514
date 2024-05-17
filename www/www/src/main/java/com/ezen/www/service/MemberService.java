@@ -8,4 +8,8 @@ public interface MemberService {
   int insert(MemberVO mvo);
 
   List<MemberVO> getList();
+
+  int modifyNoPwd(MemberVO mvo);
+
+  int modify(MemberVO mvo);
 }

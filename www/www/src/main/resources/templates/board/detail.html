@@ -60,8 +60,63 @@
             <form action="/board/remove" method="post" id="delForm" style="display:none">
                 <input type="hidden" name="bno" th:value="${bvo.bno}">
             </form>
+
+            <!--comment Line-->
+            <!--post-->
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="cmtWriter">Anonymous</span>
+                <input type="text" id="cmtText" class="form-control" placeholder="Add Comment..." aria-label="Username" aria-describedby="basic-addon1">
+                <button type="button" id="cmtPostBtn" class="btn btn-secondary">Post</button>
+            </div>
+
+            <!--spread-->
+            <ul class="list-group list-group-flush" id="cmtListArea">
+                <li class="list-group-item">
+                    <div class="input-group mb-3">
+                        <div class="fw-bold">Writer</div>
+                        content
+                    </div>
+                    <span class="badge rounded-pill text-bg-warning">modAt</span>
+                </li>
+            </ul>
+
+            <!-- 댓글 더보기 버튼 -->
+            <div>
+                <button type="button" id="moreBtn" data-page="1" class="btn btn-dark" style="visibility:hidden"> MORE + </button>
+            </div>
+
+            <!-- 모달창 라인 -->
+            <div class="modal" id="myModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modWriter">Writer</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" class="form-control" id="cmtTextMod">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="cmtModBtn">modify</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <hr>
+
         </div>
+        <script th:inline="javascript">
+            const bnoVal = [[${bvo.bno}]];
+            console.log(bnoVal);
+        </script>
         <script th:src="@{/js/boardDetail.js}"></script>
+        <script th:src="@{/js/boardComment.js}"></script>
+        <script>
+            spreadCommentList(bnoVal);
+        </script>
         </th:block>
     </th:block>
 </th:block>

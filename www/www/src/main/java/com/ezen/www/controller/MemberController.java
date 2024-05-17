@@ -19,6 +19,7 @@ public class MemberController {
   private final MemberService msv;
   private final PasswordEncoder passwordEncoder;
 
+
   @GetMapping("/register")
   public void join(){}
 
