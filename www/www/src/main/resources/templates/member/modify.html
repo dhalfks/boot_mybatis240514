@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{layout :: setFragment(~{this::content})}">
+    <th:block th:fragment="content">
+        <div class="mt-4 p-5 rounded" th:with="auth=${#authentication.getPrincipal()}">
+            <h1>Member Modify Page</h1>
+            <div class="row">
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="/image/pic.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <div class="my-3">
+                                <label for="email">Email : </label>
+                                <input type="email" class="form-control" id="email" name="email" th:value="${auth.mvo.email}" readonly>
+                            </div>
+                            <div class="my-3">
+                                <label for="pwd">Password : </label>
+                                <input type="password" class="form-control" id="pwd" placeholder="Enter Password" name="pwd">
+                            </div>
+                            <div class="my-3">
+                                <label for="nickName">Nick_Name : </label>
+                                <input type="text" class="form-control" id="nickName" name="nickName" th:value="${auth.mvo.nickName}">
+                            </div>
+
+                            <div class="mb-3">
+                                <span class="badge text-bg-warning" th:each="authList: ${auth.mvo.authList}">[[${authList.auth }]] </span>
+                            </div>
+                            <button type="submit" th:href="@{/member/modify}" class="btn btn-primary">Modify</button>
+                            <button type="button" th:href="@{/member/remove}" class="btn btn-danger">Delete</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </th:block>
+</th:block>

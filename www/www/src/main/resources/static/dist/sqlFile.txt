@@ -19,3 +19,18 @@ bno bigint not null,
 file_size bigint not null,
 reg_at datetime default now(),
 primary key(uuid));
+
+--2024.05.16
+member table
+create table member(
+email varchar(200) not null,
+pwd varchar(256) not null,
+nick_name varchar(100),
+reg_at datetime default now(),
+last_login datetime,
+primary key(email));
+
+create table auth_member(
+email varchar(200) not null,
+auth varchar(100) not null,
+foreign key (email) references member(email));
