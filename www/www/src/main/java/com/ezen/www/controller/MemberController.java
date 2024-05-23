@@ -54,4 +54,9 @@ public class MemberController {
     return "redirect:/member/logout";
   }
 
+//  @GetMapping("/remove")
+//  public String remove(){
+//
+//  }
+
 }
